@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/*
+ * DRMS "Honeycomb" palette — fixed hex values, one type family.
+ * Ink neutrals carry the UI, honey is the brand accent, and the
+ * status hues are tuned to sit next to each other in badges.
+ */
+@theme {
+  /* One family for the whole system — every font slot points at it */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Ink — neutrals (overrides Tailwind's slate so every page picks it up) */
+  --color-slate-50: #f8f9fb;
+  --color-slate-100: #f1f3f6;
+  --color-slate-200: #e5e8ee;
+  --color-slate-300: #d1d6df;
+  --color-slate-400: #9aa3b2;
+  --color-slate-500: #69738a;
+  --color-slate-600: #4a5468;
+  --color-slate-700: #353e50;
+  --color-slate-800: #1f2737;
+  --color-slate-900: #121826;
+  --color-slate-950: #0a0e18;
+
+  /* Honey — brand accent */
+  --color-honey-50: #fff9eb;
+  --color-honey-100: #fff0c6;
+  --color-honey-200: #ffe08a;
+  --color-honey-300: #ffcb47;
+  --color-honey-400: #ffb81f;
+  --color-honey-500: #f2a60c;
+  --color-honey-600: #cc8404;
+  --color-honey-700: #a16207;
+  --color-honey-800: #7c4a0b;
+  --color-honey-900: #653d0f;
+
+  /* Status: success */
+  --color-emerald-50: #ecfdf3;
+  --color-emerald-100: #d1fadf;
+  --color-emerald-500: #12b76a;
+  --color-emerald-600: #039855;
+  --color-emerald-700: #027a48;
+
+  /* Status: warning (orange, kept apart from the honey brand) */
+  --color-amber-50: #fff6ed;
+  --color-amber-100: #ffead5;
+  --color-amber-500: #fb6514;
+  --color-amber-600: #ec4a0a;
+  --color-amber-700: #c4320a;
+
+  /* Status: danger */
+  --color-rose-50: #fef3f2;
+  --color-rose-100: #fee4e2;
+  --color-rose-500: #f04438;
+  --color-rose-600: #d92d20;
+  --color-rose-700: #b42318;
+
+  /* Status: damaged */
+  --color-purple-50: #f4f3ff;
+  --color-purple-100: #ebe9fe;
+  --color-purple-500: #7a5af8;
+  --color-purple-600: #6938ef;
+  --color-purple-700: #5925dc;
+
+  /* Info */
+  --color-indigo-50: #eff8ff;
+  --color-indigo-100: #d1e9ff;
+  --color-indigo-200: #b2ddff;
+  --color-indigo-500: #2e90fa;
+  --color-indigo-600: #1570ef;
+  --color-indigo-700: #175cd3;
+
+  --color-primary: #ffb81f;
+  --color-primary-foreground: #121826;
+  --color-ring: #ffcb47;
+
+  --shadow-card: 0 1px 2px rgb(18 24 38 / 0.04), 0 1px 3px rgb(18 24 38 / 0.06);
+  --shadow-float: 0 12px 32px -8px rgb(18 24 38 / 0.18), 0 4px 8px -4px rgb(18 24 38 / 0.08);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-100 font-sans text-slate-900 antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+* {
+  @apply border-slate-200;
+}
+
+button,
+input,
+select,
+textarea,
+optgroup,
+option {
+  font-family: inherit;
+}
+
+::selection {
+  @apply bg-honey-200 text-slate-900;
+}
+
+/* Page title used across screens */
+.page-title {
+  @apply text-[28px] leading-tight font-extrabold tracking-[-0.025em] text-slate-900;
+}
+
+/* Honeycomb texture for dark brand panels */
+.honeycomb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 32L0 82V66l28 16 28-16v16L28 98z' fill='none' stroke='%23ffb81f' stroke-opacity='0.09' stroke-width='1.2'/%3E%3C/svg%3E");
+}
